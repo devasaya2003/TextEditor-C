@@ -35,10 +35,15 @@ void processKeypress() {
         break;
     
     default:
-        buffer[bufIndex ++] = c;
-        buffer[bufIndex] = '\0';
-        printf("%c", c);
-        fflush(stdout);
+        if (c >= 32 && c <= 126) {
+            buffer[bufIndex ++] = c;
+            buffer[bufIndex] = '\0';
+            printf("%c", c);
+            fflush(stdout);
+        }
+        else {
+            printf("Action not supported!\n");
+        }
         break;
     }
 }
